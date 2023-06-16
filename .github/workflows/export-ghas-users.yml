@@ -11,10 +11,11 @@ jobs:
     steps:
       - name: Query API
         run: |
-          gh api \
+          curl -L \
           -H "Accept: application/vnd.github+json" \
+          -H "Authorization: Bearer $GH_TOKEN"\
           -H "X-GitHub-Api-Version: 2022-11-28" \
-          /enterprises/burrito-party/settings/billing/advanced-security
+          https://api.github.com/enterprises/burrito-party/settings/billing/advanced-security
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_TOKEN: ${{ secrets.ENT_ADMIN_TOKEN }}
