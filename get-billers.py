@@ -2,6 +2,7 @@ import requests
 import os
 
 admin_token = os.environ.get('ADMIN_TOKEN')
+enterprise = os.environ.get('ENTERPRISE_NAME')
 
 def get_billing(enterprise):
     headers =  {
@@ -10,7 +11,7 @@ def get_billing(enterprise):
         "Content-Type": "application/json"
     }
 
-    url="https://api.github.com/enterprises/burrito-party/settings/billing/advanced-security"
+    url=f"https://api.github.com/enterprises/{enterprise}/settings/billing/advanced-security"
     response = requests.get(url, headers=self.client.headers)
     
     if response.status_code == 202:
@@ -20,7 +21,7 @@ def get_billing(enterprise):
         raise Exception(e)
 
 def main():
-    response = get_billing()
+    response = get_billing(enterprise)
     print(response)
 
 
