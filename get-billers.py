@@ -12,7 +12,7 @@ def get_billing(enterprise):
     }
 
     url=f"https://api.github.com/enterprises/{enterprise}/settings/billing/advanced-security"
-    response = requests.get(url, headers=client.headers)
+    response = requests.get(url, headers=headers)
     
     if response.status_code == 202:
         return response.json()
