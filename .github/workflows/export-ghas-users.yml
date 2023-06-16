@@ -20,10 +20,6 @@ jobs:
       
       - name: Get billers
         run: |
-          # Set issue number as env variable
-          WORKING_REPO=${{ github.event.repository.full_name }}
-          ISSUE_NUM=${{ github.event.issue.number }}
-
           # execute python script
           python get-billers.py 
 
