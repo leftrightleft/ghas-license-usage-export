@@ -16,7 +16,7 @@ jobs:
         with:
           python-version: '3.9'
           cache: 'pip' # caching pip dependencies
-      - run: pip install requests
+      - run: pip install -r requirements.txt
       
       - name: Get billers
         run: |
