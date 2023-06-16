@@ -29,3 +29,5 @@ This action is triggered using two methods.  One is a cron.  You can edit the `s
 
 ### View results
 After the action is run, we upload the result from the API as a JSON document as an action artifact.  Navigate to the last actions run and download the file from the "Artifacts" section.
+<img width="1190" alt="image" src="https://github.com/leftrightleft/ghas-license-usage-export/assets/4910518/cadbeabf-f0ae-431d-b5db-077e24d73954">
+
