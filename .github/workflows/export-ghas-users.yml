@@ -25,7 +25,7 @@ jobs:
           ISSUE_NUM=${{ github.event.issue.number }}
 
           # execute python script
-          python .github/scripts/get-billers.py 
+          python get-billers.py 
 
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
