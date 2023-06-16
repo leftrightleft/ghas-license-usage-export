@@ -24,6 +24,5 @@ jobs:
           python get-billers.py 
 
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ENTERPRISE_NAME: "burrito-party"
           ADMIN_TOKEN: ${{ secrets.ENT_ADMIN_TOKEN }}
-          GH_TOKEN: ${{ secrets.ENT_ADMIN_TOKEN }}
