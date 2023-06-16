@@ -10,8 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Query API
-        run: |
-          echo 
+        run: | 
           curl -L \
           -H "Accept: application/vnd.github+json" \
           -H "Authorization: Bearer "$GH_TOKEN""\
