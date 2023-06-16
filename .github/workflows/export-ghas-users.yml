@@ -22,7 +22,11 @@ jobs:
         run: |
           # execute python script
           python get-billers.py 
-
         env:
           ENTERPRISE_NAME: "burrito-party"
           ADMIN_TOKEN: ${{ secrets.ENT_ADMIN_TOKEN }}
+      
+      - uses: actions/upload-artifact@v3
+        with:
+          name: GHAS-committers.json
+          path: GHAS-committers.json
