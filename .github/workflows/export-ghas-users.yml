@@ -6,16 +6,28 @@ on:
 
 
 jobs:
-  billing-export:
+  get-billers:
     runs-on: ubuntu-latest
     steps:
-      - name: Query API
-        run: | 
-          curl -L \
-          -H "Accept: application/vnd.github+json" \
-          -H "Authorization: Bearer ${{ secrets.ENT_ADMIN_TOKEN }}"\
-          -H "X-GitHub-Api-Version: 2022-11-28" \
-          "https://api.github.com/enterprises/burrito-party/settings/billing/advanced-security"
+      - name: Checkout
+        uses: actions/checkout@v3
+      
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+          cache: 'pip' # caching pip dependencies
+      - run: pip install requests
+      
+      - name: Get billers
+        run: |
+          # Set issue number as env variable
+          WORKING_REPO=${{ github.event.repository.full_name }}
+          ISSUE_NUM=${{ github.event.issue.number }}
+
+          # execute python script
+          python .github/scripts/get-billers.py 
+
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ADMIN_TOKEN: ${{ secrets.ENT_ADMIN_TOKEN }}
           GH_TOKEN: ${{ secrets.ENT_ADMIN_TOKEN }}
