@@ -23,6 +23,7 @@ jobs:
           # execute python script
           python get-billers.py 
         env:
+          API_ENDPOINT: "api.github.com"
           ENTERPRISE_NAME: "burrito-party"
           ADMIN_TOKEN: ${{ secrets.ENT_ADMIN_TOKEN }}
       

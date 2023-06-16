@@ -3,7 +3,7 @@ import os
 import json
 
 admin_token = os.environ.get('ADMIN_TOKEN')
-
+endpoint = os.environ.get('API_ENDPOINT')
 enterprise = os.environ.get('ENTERPRISE_NAME')
 
 def get_billing(enterprise):
@@ -13,7 +13,7 @@ def get_billing(enterprise):
         "Content-Type": "application/json"
     }
 
-    url=f"https://api.github.com/enterprises/{enterprise}/settings/billing/advanced-security?per-page=100"
+    url=f"https://{endpoint}/enterprises/{enterprise}/settings/billing/advanced-security?per-page=100"
     response = requests.get(url, headers=headers)
     repos = response.json()
     # build paging 
